@@ -10,9 +10,7 @@ public class Temperatura {
         return temperatura;
     }
 
-    public void temperatura (double c, double f) {
-        double celsius = 0;
-        double fahrenheit = 70;
-        double temperatura = 5/9*(f-32);
+    public void conversionfromFtoC () {
+        double setTemperatura = 5/9*(this.temperatura-32);
     }
 }
