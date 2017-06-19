@@ -6,9 +6,6 @@ public class Temperatura {
     public void setTemperatura(double temperaturaZilei) {
         this.temperatura = temperaturaZilei;
     }
-    public double getTemperatura(){
-        return temperatura;
-    }
 
     public double conversionfromFtoC () {
         double convertedTemperatura = 5/9*(this.temperatura-32);
