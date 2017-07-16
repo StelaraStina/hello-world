@@ -1,0 +1,148 @@
+package com.company;
+
+public class Menu {
+	ReadConsole readConsole = new ReadConsole();
+	Calculator calculator = new Calculator();
+	LogicalOperation logicalOperation = new LogicalOperation();
+	
+	public void printMenu() {
+		System.out.print("                      \t Menu options\n\n" +
+				"1. Additions" + "                                 " + "8.  Highest number\n" +
+				"2. Subtractions" + "                              " + "9.  Text input\n" +
+				"3. Multiplication" + "                            " + "10. Between 2 and 8\n" +
+				"4. Division" + "                                  " + "11. Text and number input\n" +
+				"5. Compare numbers" + "                           " + "12. Snow forecast\n" +
+				"6. Power of 2" + "                                " + "13. Keys pressed\n" +
+				"7. Convert from Fahrenheit to Celsius" + "        " + "14. Voting age\n" +
+				"\n                      0. Quit menu");
+		System.out.print("\n\nSelect option:");
+	}
+	
+	public boolean executeProgram() {
+		printMenu();
+		boolean menuIn = true;
+		int counterMenu = 0;
+		int numberFromUser = readConsole.readNumber();
+		do {
+			switch (numberFromUser) {
+				case 0:
+					System.out.print("You selected to exit. See you soon, " + Constants.USER_NAME + "!");
+					return false;
+				case 1:
+					System.out.println("You have selected the addition option.");
+					System.out.print("Enter the first number:");
+					int firstNumber = readConsole.readNumber();
+					System.out.print("Enter the second number:");
+					int secondNumber = readConsole.readNumber();
+					System.out.print("The result of the addition is: " + calculator.addition(firstNumber, secondNumber));
+					break;
+				case 2:
+					System.out.println("You have selected the subtraction option.");
+					System.out.print("Enter the first number:");
+					int firstSubtNumber = readConsole.readNumber();
+					System.out.print("Enter the second number:");
+					int secondSubtNumber = readConsole.readNumber();
+					System.out.print("The result of the subtraction is: " + calculator.subtraction(firstSubtNumber, secondSubtNumber));
+					break;
+				case 3:
+					System.out.println("You have selected the multiplication option.");
+					System.out.print("Enter the first number:");
+					int firstMultNumber = readConsole.readNumber();
+					System.out.print("Enter the second number:");
+					int secondMultNumber = readConsole.readNumber();
+					System.out.print("The result of the multiplication is: " + calculator.multiply(firstMultNumber, secondMultNumber));
+					break;
+				case 4:
+					System.out.println("You have selected the division option.");
+					System.out.print("Enter the first number:");
+					int firstDivisionNumber = readConsole.readNumber();
+					System.out.print("Enter the second number:");
+					int secondDivisionNumber = readConsole.readNumber();
+					System.out.print("The result of the division is: " + calculator.division(firstDivisionNumber, secondDivisionNumber));
+					break;
+				case 5:
+					System.out.println("You have selected the compare numbers option.");
+					System.out.print("Enter the number:");
+					int evenNumber = readConsole.readNumber();
+					System.out.print("The number you entered is: " + calculator.modulo(evenNumber));
+					break;
+				case 6:
+					System.out.println("You have selected the power of two option.");
+					System.out.print("Enter the number:");
+					int powerNumber = readConsole.readNumber();
+					System.out.print("The result power of two is: " + calculator.convertFtoC(powerNumber));
+					break;
+				case 7:
+					System.out.println("You have selected the convert temperature option.");
+					System.out.print("Enter a Fahrenheit temperature:");
+					int convertNumber = readConsole.readNumber();
+					System.out.print("The temperature in Celsius is: " + calculator.convertFtoC(convertNumber));
+					break;
+				case 8:
+					System.out.println("You have selected the highest number option.");
+					System.out.print("Enter the first number:");
+					int firstHighNumber = readConsole.readNumber();
+					System.out.print("Enter the second number:");
+					int secondHighNumber = readConsole.readNumber();
+					System.out.print("The highest number is: " + logicalOperation.compareNumbers(firstHighNumber, secondHighNumber));
+					break;
+				case 9:
+					System.out.println("You have selected the text input option.");
+					System.out.print("Enter the text:");
+					String textUser = readConsole.readText();
+					System.out.print(logicalOperation.compareText(textUser));
+					break;
+				case 10:
+					System.out.println("You have selected the between 2 and 8 option.");
+					System.out.print("Enter the number:");
+					int numberUser = readConsole.readNumber();
+					System.out.print("The number is: " + logicalOperation.compNumb(numberUser));
+					break;
+				case 11:
+					System.out.println("You have selected the text and number input option.");
+					System.out.print("Enter the text:");
+					String textFromUser = readConsole.readText();
+					System.out.print("Enter the number:");
+					int numbUser = readConsole.readNumber();
+					System.out.print(logicalOperation.doubleInput(numbUser, textFromUser));
+					break;
+				case 12:
+					System.out.println("You have selected the snow forecast option.");
+					System.out.print("Enter a number:");
+					int forecastNumber = readConsole.readNumber();
+					System.out.print(logicalOperation.forecastWinter(forecastNumber));
+					break;
+				case 13:
+					System.out.println("You have selected the keys pressed option.");
+					System.out.print("Press a key:");
+					int userKey = readConsole.readNumber();
+					System.out.print(logicalOperation.userKey(userKey));
+					break;
+				case 14:
+					System.out.println("You have selected the voting age option.");
+					System.out.print("Enter your age:");
+					int userAge = readConsole.readNumber();
+					System.out.println(logicalOperation.votingAge(userAge));
+					break;
+				default:
+					System.out.println("Incorrect option! Choice must be a value of 1 to 14.");
+					System.out.print("Retry entering the number:");
+					readConsole.readNumber();
+					counterMenu++;
+			}
+			if (counterMenu > 2) {
+				System.out.println("Failed to choose the correct option. Logging off!");
+				return false;
+			}
+		} while (false);
+		return true;
+	}
+	public void runProgram() {
+//		By default, programul ruleaza, si atunci ii dau conditie de booleana cu true.
+//		Meniul e true cand trece cel putin odata prin el si nu e case 0.
+		boolean run = true;
+		while (run)
+			run = executeProgram();
+		System.out.println("Goodbye " + Constants.USER_NAME + ". Come back soon!");
+	}
+}
