@@ -130,18 +130,17 @@ public class Menu {
 					readConsole.readNumber();
 					counterMenu++;
 			}
+			if (counterMenu > 2) {
+				System.out.println("Failed to choose the correct option. Logging off!");
+				return false;
+			}
 			System.out.print("\nDo you wish to continue in this module? Y / N ");
 			String inputText = readConsole.readText();
 			if (inputText.equals("N")) {
 				continueSwitch = false ;
-			} else {
-				printMenu();
-				if (counterMenu > 2) {
-					System.out.println("Failed to choose the correct option. Logging off!");
-					return false;
-				}
 			}
-		}while (continueSwitch) ;
+		}
+		while (continueSwitch) ;
 		return true;
 	}
 	
