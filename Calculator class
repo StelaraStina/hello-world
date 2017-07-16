@@ -1,0 +1,52 @@
+package com.company;
+
+public class Calculator {
+	ReadConsole readConsole = new ReadConsole();
+
+//	Lab 5 Homework - preparing for the User Menu
+	public int addition(int firstNumber, int secondNumber) {
+//		int firstNumber = readConsole.readNumber();
+//		int secondNumber = readConsole.readNumber();
+		return firstNumber + secondNumber;
+	}
+	
+	public int subtraction(int firstNumber, int secondNumber) {
+//		int firstNumber = readConsole.readNumber();
+//		int secondNumber = readConsole.readNumber();
+		return firstNumber - secondNumber;
+	}
+	
+	public int multiply(int firstNumber, int secondNumber) {
+//		int firstNumber = readConsole.readNumber();
+//		int secondNumber = readConsole.readNumber();
+		return firstNumber * secondNumber;
+	}
+	
+	public int division(int firstNumber, int secondNumber) {
+//		int firstNumber = readConsole.readNumber();
+//		int secondNumber = readConsole.readNumber();
+		return firstNumber / secondNumber;
+	}
+	public String modulo(int firstNumber){
+//		int firstNumber = readConsole.readNumber();
+//		int secondNumber = readConsole.readNumber();
+		if(firstNumber % 2 == 0 ) {
+			return "even";
+		}
+		return "odd";
+	}
+	public float convertFtoC(float F){
+		return 5/9f*(F-32);
+	}
+	public String doublePower(int firstNumber){
+//		int firstNumber = readConsole.readNumber();
+		if(firstNumber < 0){
+			return "Negative number.";
+		}
+		return "The power of two is: " + firstNumber*firstNumber;
+		
+	}
+}
+
+
+
