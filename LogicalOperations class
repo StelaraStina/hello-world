@@ -1,0 +1,151 @@
+package com.company;
+
+public class LogicalOperation {
+	ReadConsole readConsole = new ReadConsole();
+	
+	//	Definit constante pentru ex. 3:
+	static int primulNumar = 2;
+	static int secondNumar = 8;
+	
+	//	Definit constante pentru ex. 4:
+	static int firstNumb = 3;
+	static int secondNumb = 4;
+	
+	//   Am definit 2 constante pentru ex. nr. 5:
+	static int firstForecast = 8;
+	static int secondForecast = 6;
+	
+	//	Definit constante pentru ex. 9:
+	static int votingAge = 18;
+	
+	// Ex. 1: Given two numbers, see which one is the greatest and print it.
+	public int compareNumbers(int firstNumber, int secondNumber) {
+		if (firstNumber >= secondNumber) {
+			return firstNumber;
+		} else {
+			return secondNumber;
+		}
+	}
+	
+	// Ex. 2 - Given a text input, if it is “FastTrack”, then print “Learning text comparison”. If not, print “Got to try some more”
+	public String compareText(String text) {
+		if (text.equals("FastTrackIT")) {
+			return "Learning text comparison";
+		} else {
+			return "Got to try some more";
+		}
+	}
+	
+	//	Ex. 3 - Given a number, if it’s equal to or higher than 2 and equal to or lower than 8, print the number
+	public String compNumb(int thirdNumber) {
+		if (thirdNumber >= primulNumar && thirdNumber <= secondNumar) {
+			return thirdNumber + "";
+		} else {
+			return "Try again!";
+		}
+	}
+//	Ex. 4 - Given a text input and a number input, if the text is equal to “FastTrack”
+//   AND the number is equal to or lower than 3, print the text and the number. If the text is not “FastTrack”
+//   AND the number is equal to or higher than 4, print the number and the text, in this order.
+	
+	public String doubleInput(int userNumb, String userText) {
+		if (userText.equals("FastTrack") && userNumb <= firstNumb) {
+			return userText + " " + userNumb;
+		} else if (userText != ("FastTrack") && userNumb >= secondNumb) {
+			return userNumb + " " + userText;
+		}
+		return "Different case!";
+	}
+
+//	 Ex. 5 - Given a number input, if it is higher than 8 OR equal to 6, print “The amount of snow this
+//   winter was(cm):” and the given number. Else print “The forecast snow is(cm):”
+	
+	public String forecastWinter(int userForecast) {
+		if (userForecast > firstForecast || userForecast == secondForecast) {
+			return "The amount of snow this winter was of : " + userForecast + " (cm)";
+		} else {
+			return "The forecasted snow is of: " + userForecast + " (cm).";
+		}
+	}
+
+//	Ex. 6 - Given a number input, if the number is greater than 3 but not equal to 4, print “The
+//	number is greater than 3 and not equal to 4”. Else if the number is equal to 4 print ”The
+//	number is equal to 4”. Else if the number is lower than 3 print “The number is lower than 3”.
+
+//		public String exercitiulSase (int userThreeElses) {
+//			if (userThreeElses > firstNumb && userThreeElses != secondNumb) {
+//				return "The number is greater than " + firstNumb + " and not equal to " + secondNumb;
+//			} else if (userThreeElses == secondNumb) {
+//				return "The number is equal to: " + secondNumb;
+//			} else {
+//				return "The number is lower than " + firstNumb;
+//			}
+//		}
+
+//	Ex. 7 - If the user pressed number keys( from 0 to 9), the program will tell the number that is pressed, otherwise, program
+//	will show "Not allowed”. (use a switch case for this)
+//	Varianta 1:
+//	public int pressKey(int key) {
+//		switch (key) {
+//			case 0:
+//				System.out.print("The input number is: " );
+//				break;
+//			case 1:
+//				System.out.print("The input number is: ");
+//				break;
+//			case 2:
+//				System.out.print("The input number is: ");
+//				break;
+//			case 3:
+//				System.out.print("The input number is: ");
+//				break;
+//			case 4:
+//				System.out.print("The input number is: ");
+//				break;
+//			case 5:
+//				System.out.print("The input number is: ");
+//				break;
+//			case 6:
+//				System.out.print("The input number is: ");
+//				break;
+//			case 7:
+//				System.out.print("The input number is: ");
+//				break;
+//			case 8:
+//				System.out.print("The input number is: ");
+//				break;
+//			case 9:
+//				System.out.print("The input number is: ");
+//				break;
+//			default:
+//				String outSide = "Not allowed.";
+//				System.out.print(outSide);
+//				break;
+//		}
+//		return key;
+	
+	//	Varianta 2:
+	public String userKey(int numberFromUser) {
+		if (numberFromUser < 10 && numberFromUser >= 0) {
+			return "You pressed: " + numberFromUser;
+		} else {
+			return "Not allowed!";
+		}
+	}
+
+// Ex. 8: Write a Java program to determine whether an input number is an even number.
+//			public boolean evenNumber(int givenNumber) {
+//				if (givenNumber % 2 == 0)
+//			return true;
+//				else
+//			return false;}
+
+//	Ex. 9 - Write Java program to allow the user to input his/her age. Then the program will show if the person is eligible to
+//	vote. A person who is eligible to vote must be older than or equal to 18 years old.
+	
+	public String votingAge(int inputAge) {
+		if (inputAge >= votingAge) {
+			return "Eligible for voting. Proceed.";
+		} else {
+			return "Access denied. Age not appropriate for voting.";
+		}
