@@ -20,13 +20,13 @@ public class Menu {
 	
 	public boolean executeProgram() {
 		printMenu();
-		boolean menuIn = true;
+		boolean continueSwitch = true;
 		int counterMenu = 0;
 		int numberFromUser = readConsole.readNumber();
 		do {
 			switch (numberFromUser) {
 				case 0:
-					System.out.print("You selected to exit. See you soon, " + Constants.USER_NAME + "!");
+					System.out.print("You selected to exit. See you soon! " + Constants.USER_NAME + "!");
 					return false;
 				case 1:
 					System.out.println("You have selected the addition option.");
@@ -130,13 +130,21 @@ public class Menu {
 					readConsole.readNumber();
 					counterMenu++;
 			}
-			if (counterMenu > 2) {
-				System.out.println("Failed to choose the correct option. Logging off!");
-				return false;
+			System.out.print("\nDo you wish to continue in this module? Y / N ");
+			String inputText = readConsole.readText();
+			if (inputText.equals("N")) {
+				continueSwitch = false ;
+			} else {
+				printMenu();
+				if (counterMenu > 2) {
+					System.out.println("Failed to choose the correct option. Logging off!");
+					return false;
+				}
 			}
-		} while (false);
+		}while (continueSwitch) ;
 		return true;
 	}
+	
 	public void runProgram() {
 //		By default, programul ruleaza, si atunci ii dau conditie de booleana cu true.
 //		Meniul e true cand trece cel putin odata prin el si nu e case 0.
